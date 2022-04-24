@@ -9,6 +9,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 
 
 
+
 /**
  * Loaders
  */
@@ -19,7 +20,7 @@ const cubeTextureLoader = new THREE.CubeTextureLoader()
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 const debugObject = {}
 
 // Canvas
@@ -54,8 +55,8 @@ const environmentMap = cubeTextureLoader.load([
     '/models/bg.jpg',
     '/models/bg.jpg',
     '/models/bg.jpg',
-    '/models/bg.jpg',
-    '/models/bg.jpg',
+    '/models/bgplain.jpg',
+    '/models/bgplain.jpg',
 ])
 
 environmentMap.encoding = THREE.sRGBEncoding
@@ -64,23 +65,23 @@ scene.background = environmentMap
 scene.environment = environmentMap
 
 debugObject.envMapIntensity = 2.5
-gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
+// gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
 
 /**
  * Models
  */
-gltfLoader.load(
-    '/models/dx_model/scene.gltf',
+ gltfLoader.load(
+    '/models/human_heart/scene.gltf',
     (gltf) =>
     {
-        gltf.scene.scale.set(1.5, 1.5, 1.5)
-        gltf.scene.position.set(-1, - 4.5, 1)
-        gltf.scene.rotation.y = Math.PI * 0.5
+        gltf.scene.scale.set(.035, .035, .035)
+        gltf.scene.position.set(-3.5, -11.5, 1)
+        // gltf.scene.rotation.y = Math.PI * 0.5
         scene.add(gltf.scene)
-
-        gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
-
-        updateAllMaterials()
+        // Animation
+        // mixer = new THREE.AnimationMixer(gltf.scene)
+        // const action = mixer.clipAction(gltf.animations[2])
+        // action.play()
     }
 )
 
@@ -98,13 +99,55 @@ gltfLoader.load(
 
 const raycaster = new THREE.Raycaster();
 
-const points = [
-    {
-        position: new THREE.Vector3(1.55, 0.3, -0.6),
-        element: document.querySelector('.point-0')
-    }
-]
+// const points = [
+//     {
+//         position: new THREE.Vector3(-0.55, -0.8, -0.6),
+//         element: document.querySelector('.point-0')
+//     },
+//     {
+//         position: new THREE.Vector3(-.55, 0.3, -0.6),
+//         element: document.querySelector('.point-1')
+//     },
+//     {
+//         position: new THREE.Vector3(0.5, 0.3, 1.09),
+//         element: document.querySelector('.point-2')
+//     },
+//     {
+//         position: new THREE.Vector3(-.95, 1.3, -0.6),
+//         element: document.querySelector('.point-3')
+//     },
+//     {
+//         position: new THREE.Vector3(-.55, 4.3, -0.6),
+//         element: document.querySelector('.point-4')
+//     }
+// ]
 
+const findings = [
+    {
+        position: new THREE.Vector3(-0.55, -0.8, -0.6),
+        element: document.querySelector('.findings')
+    },
+    {
+        position: new THREE.Vector3(-0.55, -0.8, -0.6),
+        element: document.querySelector('.more')
+    }
+    // {
+    //     position: new THREE.Vector3(-.55, 0.3, -0.6),
+    //     element: document.querySelector('.point-1')
+    // },
+    // {
+    //     position: new THREE.Vector3(0.5, 0.3, 1.09),
+    //     element: document.querySelector('.point-2')
+    // },
+    // {
+    //     position: new THREE.Vector3(-.95, 1.3, -0.6),
+    //     element: document.querySelector('.point-3')
+    // },
+    // {
+    //     position: new THREE.Vector3(-.55, 4.3, -0.6),
+    //     element: document.querySelector('.point-4')
+    // }
+]
 
 /**
  * Lights
@@ -117,10 +160,10 @@ directionalLight.shadow.normalBias = 0.05
 directionalLight.position.set(0.25, 3, - 2.25)
 scene.add(directionalLight)
 
-gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
-gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
-gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
-gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
+// gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
+// gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
+// gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
+// gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
 
 /**
  * Sizes
@@ -180,24 +223,24 @@ effectComposer.setSize(sizes.width, sizes.height)
 // const renderPass = new RenderPass(scene, camera)
 // effectComposer.addPass(renderPass)
 
-gui
-    .add(renderer, 'toneMapping', {
-        No: THREE.NoToneMapping,
-        Linear: THREE.LinearToneMapping,
-        Reinhard: THREE.ReinhardToneMapping,
-        Cineon: THREE.CineonToneMapping,
-        ACESFilmic: THREE.ACESFilmicToneMapping
-    })
-    .onFinishChange(() =>
-    {
-        renderer.toneMapping = Number(renderer.toneMapping)
-        updateAllMaterials()
-    })
-gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
+// gui
+//     .add(renderer, 'toneMapping', {
+//         No: THREE.NoToneMapping,
+//         Linear: THREE.LinearToneMapping,
+//         Reinhard: THREE.ReinhardToneMapping,
+//         Cineon: THREE.CineonToneMapping,
+//         ACESFilmic: THREE.ACESFilmicToneMapping
+//     })
+//     .onFinishChange(() =>
+//     {
+//         renderer.toneMapping = Number(renderer.toneMapping)
+//         updateAllMaterials()
+//     })
+// gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
 
 
-const point1 = document.querySelector('.point-0');
-console.log(point1)
+// const point1 = document.querySelector('.point-0');
+// console.log(point1)
 // point1.position.z = 5
 
 /**
@@ -208,30 +251,30 @@ const tick = () =>
     // Update controls
     controls.update()
 
-    for(const point of points)
-    {
-        const screenPosition = point.position.clone()
-        screenPosition.project(camera)
+    // for(const point of points)
+    // {
+    //     const screenPosition = point.position.clone()
+    //     screenPosition.project(camera)
 
-        raycaster.setFromCamera(screenPosition, camera)
-        const intersects = raycaster.intersectObjects(scene.children, true)
+    //     raycaster.setFromCamera(screenPosition, camera)
+    //     const intersects = raycaster.intersectObjects(scene.children, true)
 
-        if(intersects.length === 0)
-        {
-            point.element.classList.add('visible')
-        }
-        else{
-            const intersectionDistance = intersects[0].distance
-            const pointDistance = point.position.distanceTo(camera.position)
-            point.element.classList.remove('visible')
-        }
+    //     if(intersects.length === 0)
+    //     {
+    //         point.element.classList.add('visible')
+    //     }
+    //     else{
+    //         const intersectionDistance = intersects[0].distance
+    //         const pointDistance = point.position.distanceTo(camera.position)
+    //         point.element.classList.remove('visible')
+    //     }
 
-        // console.log(screenPosition)
-        const translateX = screenPosition.x * sizes.width * 0.5;
-        const translateY = screenPosition.y * sizes.height * 0.5;
+    //     // console.log(screenPosition)
+    //     const translateX = screenPosition.x * sizes.width * 0.5;
+    //     const translateY = screenPosition.y * sizes.height * 0.5;
 
-        point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`
-    }
+    //     point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`
+    // }
     // Render
     renderer.render(scene, camera)
     // effectComposer.render()

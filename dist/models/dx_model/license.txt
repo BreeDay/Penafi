@@ -1,0 +1,8 @@
+Model Information:
+* title:	Low-Poly male basemesh
+* source:	https://sketchfab.com/3d-models/low-poly-male-basemesh-a1c00897534849c9ad2926841b28bc11
+* author:	Thibaut-Bouten (https://sketchfab.com/Thibaut-Bouten)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
