@@ -6,7 +6,6 @@ const nav = document.querySelector('.nav');
 const tabs = document.querySelectorAll('.benefits__tab');
 const tabContainer = document.querySelector('.benefits__tab-container');
 const tabContent = document.querySelectorAll('.benefits__content');
-
 ///////////////////////////////////////
 // Button scrolling
 btnScrollTo.addEventListener('click', function (e) {
