@@ -3,88 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/static/models/dx_st.jpg" />
-    <title>DiagnosX | Healthcare Equity Reimagined</title>
+    <title>Penafi</title>
 </head>
 <body>
     <canvas class="webgl"></canvas>
-    <!-- <div class="point point-0 visible">
-        <div class="label"></div>
-        <div class="text">HEENT: Normal head, ears, nose and throat.<br> 
-        </div>
-    </div>
-
-    <div class="point point-1 visible">
-        <div class="label"></div>
-        <div class="text">Cardiac: ABNORMAL FINDINGS:<br>
-            Iregular rate and rhythm.
-        </div>
-    </div>
-
-    <div class="point point-2 visible">
-        <div class="label"></div>
-        <div class="text">Respiratory: Normal <br> lungs are clear</div>
-    </div>
-            
-            
-    <div class="point point-3 visible">
-        <div class="label"></div>
-        <div class="text">Abdomen is normal. No tenderness to palpation</div>
-    </div>
-                
-    <div class="point point-4 visible">
-        <div class="label"></div>
-        <div class="text">Normal skin and muscle strength.</div>
-    </div> -->
-    <div class="vitals">
-        <table>
-            <tr>
-                <th colspan="3">John Demo</th>
-            </tr>
-            <tr>
-                <td>Heart rate</td>
-                <td>Temperature</td>
-                <td>Blood pressure</td>
-             </tr>
-             <tr>  
-                <td>88 BBP</td>
-                <td>98.7 F</td>
-                <td>192/87</td>
-            </tr> 
-        </table>
-    </div>
     
     <div class="findings visible">
-        <button class="label btn f1" onclick="showFindings();">What are my abnormal findings?</button> 
-        <div class="more first none" id="first">Dr. Test has found that your heart beat is slower than it should be. <br><br>
-            <button class="whtbtn wb1" onclick="showMeaning();">What causes this?</button>
+        <button class="label btn f1" id="first">About the shoe</button> 
+        <div class="more none" id="ssecond">Garoo shoes are made with 100% Kangaroo leather</div>
+
+        <div class="more first none top" id="second">It is extremely durable but overtime the leather can dry out. <br><br>
+            <button class="whtbtn wb1 " id="care">Leather Care</button>
         </div>  
-      
-        <div class="more second none"> Likely cause is your blood pressure of 192/87.<br><br>
-            <div class="whtbtn wb2" onclick="showWhy();">Why?</div>
+        <div class="more third none" id="third">The best way to care for a Garoo shoe is with Care Cream.</div>
+
+        <div class="more second none tiptop" id="fourth"> Care cream penetrates the leather to keep it hydrated and looking new.<br><br>
+            <button class="whtbtn wb1" id="add">Add Cream</button>
+            <button class="whtbtn wb1" id="no">No Thanks</button>
         </div>  
-        <div class="more third none" id="third">The higher the blood pressure the more force required by the heart to pump blood.</div>
     </div>     
 </body>
 </html>
-<script>
-    const first = document.querySelector('.first');
-    const f1 = document.querySelector(".f1");
-    const second = document.querySelector('.second');
-    const third = document.querySelector('.third');
-
-    function showFindings() {
-    first.classList.remove("none");
-    f1.classList.add("none");
-    };
-
-    function showMeaning() {
-        second.classList.remove("none");
-        first.classList.add("none");
-    }
-    function showWhy() {
-        third.classList.remove("none");
-        second.classList.add("none");
-    }
-
-</script>

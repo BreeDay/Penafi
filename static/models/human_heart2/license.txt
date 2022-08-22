@@ -1,0 +1,8 @@
+Model Information:
+* title:	Human Heart
+* source:	https://sketchfab.com/3d-models/human-heart-8ad7eb387e6e41e0abfe17eec5351f8b
+* author:	Pelilasdis (https://sketchfab.com/Pelilasdis)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
