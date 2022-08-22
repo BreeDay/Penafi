@@ -1,52 +1,7 @@
-#DiagnosX
-Template for TigerGraph Graph for All Challenge Submissions
+This is my code for the Square Unboxed Hackathon using the Checkout API
 
-Use this template for your project submission and edit the README following the text below. Add your project code and data (if public) to the repository.
+To test the code:
 
-Project Title
-
-Contributors and Contact Information: [ ]
-
-Problem Statement addressed (or explain your own): [ ]
-
-Description:
-
-Explain what your project is trying to accomplish and how you utilized graph technology to achieve those goals. Describe how your submission is relevant to the problem statement and why it is impactful to the world. Remember to link your submission video here.
-
-Tell us how your entry was the most...
-
-Impactful in solving a real world problem
-Innovative use case of graph
-Ambitious and complex graph
-Applicable graph solution
-Other additions:
-
-Data: Give context for the dataset used and give full access to judges if publicly available or metadata otherwise.
-Technology Stack: Describe technologies and programming languages used.
-Visuals: Feel free to include other images or videos to better demonstrate your work.
-Link websites or applications if needed to demonstrate your work.
-Dependencies
-
-State any dependencies and their versions needed to be installed to test this project. This may include programming languages, frameworks, libraries, and etc.
-
-Installation
-
-Please give detailed instructions on installing, configuring, and running the project so judges can fully replicate and assess it.
-
-This can include:
-
-Clone repository
-Install dependencies
-Access data
-Steps to build/run project
-Known Issues and Future Improvements
-
-Explain known limitations within the project and potential next steps.
-
-Reflections
-
-Review the steps you took to create this project and the resources you were provided. Feel free to indicate room for improvement and general reflections.
-
-References
-
-Please give credit to other projects, videos, talks, people, and other sources that have inspired and influenced your project.
+-run "npm install" 
+-run "npm run dev"
+-Be amazed jk
